@@ -8,11 +8,7 @@ output "eks_cluster_endpoint" {
   value       = module.eks.cluster_endpoint
 }
 
-#output "eks_node_role" {
-#  description = "IAM Role for EKS worker nodes"
-#  value       = aws_iam_role.eks_nodes.name
-#}
-
 output "eks_node_role_arn" {
-  value = aws_iam_role.eks_node_role.arn
+  description = "IAM Role for EKS worker nodes"
+  value       = aws_iam_role.eks_node_role.arn
 }
