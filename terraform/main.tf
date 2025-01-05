@@ -41,7 +41,7 @@ resource "aws_eks_node_group" "default" {
   cluster_name    = "devops-eks" # module.eks.cluster_id
   depends_on      = [module.eks] # Explicit dependency on the cluster
   node_group_name = "default"
-  node_role_arn   = aws_iam_role.eks_nodes.arn
+  node_role_arn   = aws_iam_role.eks_node_role.arn # aws_iam_role.eks_nodes.arn
   subnet_ids      = module.vpc.private_subnets
   scaling_config {
     desired_size = 2
@@ -53,81 +53,4 @@ resource "aws_eks_node_group" "default" {
   tags = {
     Name = "devops-eks-node-group"
   }
-}
-
-resource "aws_iam_role" "eks_nodes" {
-  name = "eks-node-role"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "ec2.amazonaws.com"
-        }
-      }
-    ]
-  })
-}
-
-resource "aws_iam_role_policy" "eks_worker_node_policy" {
-  name = "eks-worker-node-policy"
-  role = aws_iam_role.eks_nodes.name
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action   = "eks:DescribeCluster"
-        Effect   = "Allow"
-        Resource = "*"
-      }
-    ]
-  })
-}
-
-resource "aws_iam_role_policy" "eks_cni_policy" {
-  name = "eks-cni-policy"
-  role = aws_iam_role.eks_nodes.name
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = [
-          "ec2:AssignPrivateIpAddresses",
-          "ec2:Describe*",
-          "ec2:UnassignPrivateIpAddresses",
-          "ec2:CreateNetworkInterface",
-          "ec2:DeleteNetworkInterface",
-          "ec2:DescribeNetworkInterfaces",
-          "ec2:DetachNetworkInterface",
-          "ec2:AttachNetworkInterface"
-        ],
-        Effect   = "Allow",
-        Resource = "*"
-      }
-    ]
-  })
-}
-
-resource "aws_iam_role_policy" "cloudwatch_policy" {
-  name = "cloudwatch-agent-policy"
-  role = aws_iam_role.eks_nodes.name
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = [
-          "logs:PutLogEvents",
-          "logs:CreateLogStream",
-          "logs:CreateLogGroup",
-          "logs:DescribeLogStreams",
-          "logs:DescribeLogGroups"
-        ],
-        Effect   = "Allow",
-        Resource = "*"
-      }
-    ]
-  })
 }
