@@ -12,10 +12,18 @@ Infrastructure as Code (IaC) setup for a scalable, multi-tier application on AWS
 Unfortunately i was a little too optimistic with deadline offering and had very little time to learn and implement it fully how i intended.
 
 ## Tier 1 - Public subnets, gateways, load-balancing
+First tier contains of 2 public subnets in separate availability zones for high availability.
+Public subnets host the gateways and load balancers to provide a secure way of handling the traffic.
+Public subnets are exposed to the internet, meaning the rest of the tiers (EKS cluster, database) are secured from the external access.
 
 ## Tier 2 - Private subnets - EKS Cluster
+EKS cluster includes the application instances and cluster worker nodes. They are hosted in two private subnets.
+To further improve this access to this layer should be better managed with for example Bastion to deny public access to this layer and better monitor the access.
+Currently the access is limited via IAM Roles.
 
 ## Tier 3 - Database instance (RDS PostgreSQL)
+This layer includes RDS instance for PostgreSQL. Seperate subnet is created for database for additional security and independence.
+Automatic backups could be created and secrets management defenitely needs to be implemented.
 
 ## Improvements:
 * Add ALB Application Load Management - Researched the ways to add it.
@@ -23,6 +31,7 @@ Unfortunately i was a little too optimistic with deadline offering and had very 
 * Horizontal Auto-scaling could be fully implemented and improved.
 * Automatic database updates
 * Automatic etcd backup and external volume management
+* Secrets management (AWS Secrets Manager or Hashicorp Vault) should be implemented.
 * Add metrics
   * Container/Node CPU/MEM limits, loads
   * HTTP Request error counts
