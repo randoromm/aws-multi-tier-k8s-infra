@@ -10,6 +10,9 @@ Infrastructure as Code (IaC) setup for a scalable, multi-tier application on AWS
 ![devops-task-diagram](https://github.com/user-attachments/assets/da45dfcc-c281-4824-8e9f-3425d9943a02)
 
 Unfortunately i was a little too optimistic with deadline offering and had very little time to learn and implement it fully how i intended.
+I planned to use existing modules and i'm not sure how great idea it will be in most cases for production.
+I learned the struggles of understanding the background of modules the hardway, but decided to continue with the idea anyways through debugging.
+On the positive side the task was very exciting and fun and i learned a lot about AWS during this task. I will defenitely continue with the task to implement the improvements.
 
 ## Tier 1 - Public subnets, gateways, load-balancing
 First tier contains of 2 public subnets in separate availability zones for high availability.
