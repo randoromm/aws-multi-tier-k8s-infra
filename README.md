@@ -24,13 +24,13 @@ Unfortunately i was a little too optimistic with deadline offering and had very 
 * Automatic database updates
 * Automatic etcd backup and external volume management
 * Add metrics
-** Container/Node CPU/MEM limits, loads
-** HTTP Request error counts
-** Worker node disk free percentage
-** Thread count per service
-** Availability checks for cluster/worker nodes/services
-** Libraries for microservices to provide more relevant metrics (development)
-** etc..
+  * Container/Node CPU/MEM limits, loads
+  * HTTP Request error counts
+  * Worker node disk free percentage
+  * Thread count per service
+  * Availability checks for cluster/worker nodes/services
+  * Libraries for microservices to provide more relevant metrics (development)
+  * etc..
 
 ## CI/CD Implementation suggestions
 There are many ways to design a CI/CD process, but here are my preferances:
