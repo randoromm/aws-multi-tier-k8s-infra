@@ -33,10 +33,10 @@ module "rds" {
   username = var.db_username
   password = var.db_password
 
-  multi_az = true
-
+  multi_az               = true
+  db_subnet_group_name   = module.vpc.database_subnet_group
   subnet_ids             = module.vpc.database_subnets
-  vpc_security_group_ids = [aws_security_group.rds_sg.id]
+  vpc_security_group_ids = [module.vpc.default_security_group_id]
 
   publicly_accessible = false
 
