@@ -8,5 +8,20 @@ module "vpc" {
   public_subnets  = var.public_subnets
   private_subnets = var.private_subnets
 
-  #enable_nat_gateway = true
+  enable_dns_hostnames = true # Many 3party apps (and also VPN) require DNS support, so i like to enable it from the start
+  enable_dns_support   = true
+
+  enable_nat_gateway     = true
+  single_nat_gateway     = true # For prod consider per avz or per subnet
+  one_nat_gateway_per_az = false
+
+  public_subnet_tags = {
+    "kubernetes.io/role/elb"           = 1
+    "kubernetes.io/cluster/devops-eks" = "owned"
+  }
+
+  private_subnet_tags = {
+    "kubernetes.io/role/internal-elb"  = 1
+    "kubernetes.io/cluster/devops-eks" = "owned"
+  }
 }
