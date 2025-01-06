@@ -4,3 +4,4 @@
 terraform.tfvars
 kubeconfig
 *.lock.hcl
+*.tfstate.lock.info
