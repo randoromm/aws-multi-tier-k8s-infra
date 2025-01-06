@@ -32,7 +32,8 @@ Automatic backups could be created and secrets management defenitely needs to be
 * Add ALB Application Load Management
   * TLS via certificate manager
   * Karpenter or similar solutions to deploy ALB
-  * Necessary IAM setups 
+  * Necessary IAM setups
+* Improve kubernetes manifests (Kustomize, Ingress setup for ALB, Services)
 * Bastion or similar to securely offer access to users for tier 2 and tier 3.
 * Horizontal Auto-scaling could be fully implemented and improved.
 * Automatic database updates
