@@ -23,3 +23,23 @@ variable "private_subnets" {
   description = "CIDR blocks for private subnets."
   default     = ["10.0.101.0/24", "10.0.102.0/24"]
 }
+
+variable "database_subnets" {
+  description = "CIDR blocks for private subnets."
+  default     = ["10.0.151.0/24", "10.0.152.0/24"]
+}
+
+variable "db_username" {
+  description = "Username for the RDS database."
+  default     = "dbadmin"
+}
+
+variable "db_password" {
+  description = "Password for the RDS database."
+  default     = "changeme"
+}
+
+variable "db_family" {
+  description = "The database family for the RDS parameter group."
+  default     = "postgres14"
+}

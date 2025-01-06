@@ -28,3 +28,7 @@ output "eks_node_role_arn" {
   description = "IAM Role for EKS worker nodes"
   value       = aws_iam_role.eks_node_role.arn
 }
+
+output "rds_endpoint" {
+  value = module.rds.db_instance_endpoint
+}

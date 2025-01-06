@@ -4,4 +4,5 @@ Infrastructure as Code (IaC) setup for a scalable, multi-tier application on AWS
 ## Modules used:
 https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest
 https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest
+https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest
 
