@@ -21,9 +21,22 @@ Unfortunately i was a little too optimistic with deadline offering and had very 
 * Add ALB Application Load Management - Researched the ways to add it.
 * Bastion or similar to securely offer access to users for tier 2 and tier 3.
 * Horizontal Auto-scaling could be fully implemented and improved.
+* Automatic database updates
+* Automatic etcd backup and external volume management
+* Add metrics
+** Container/Node CPU/MEM limits, loads
+** HTTP Request error counts
+** Worker node disk free percentage
+** Thread count per service
+** Availability checks for cluster/worker nodes/services
+** Libraries for microservices to provide more relevant metrics (development)
+** etc..
 
 ## CI/CD Implementation suggestions
-Jenkins/Github Actions
-ArgoCD
-Release branching strategy should be follow something similar to GitFlow principles
+There are many ways to design a CI/CD process, but here are my preferances:
+Release branching strategy should be follow something similar to GitFlow principles. This should be similar for both infra and micro services:
 ![image](https://github.com/user-attachments/assets/c2aec0b5-34ab-4acd-aad9-a4f3a895ce79)
+Jenkins/GitHub actions can be connected to Terraform Enterprise to and update images in ECR (container registry) and deploy.
+
+Also i've heard great feedback on ArgoCD. ArgoCD could be seperately used to upgrade the micro services if the helm charts/manifests have been updated.
+
