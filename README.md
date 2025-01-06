@@ -52,3 +52,8 @@ Jenkins/GitHub actions can be connected to Terraform Enterprise to and update im
 
 Also i've heard great feedback on ArgoCD. ArgoCD could be seperately used to upgrade the micro services if the helm charts/manifests have been updated.
 
+## Monitoring
+Some options for monitoring are Grafana, Datadog, CloudWatch.
+APM Agent can be attached to container and gather various metrics for the chosen observability tool.
+Previously we have used Prometheus/Thanos to gather metrics and also ELK stack to gather all the logs.
+For Spring/.NET there are libraries which can be included in development of microservices to provide better and more relevant metrics.
