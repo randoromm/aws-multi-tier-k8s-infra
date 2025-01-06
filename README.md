@@ -29,7 +29,10 @@ This layer includes RDS instance for PostgreSQL. Seperate subnet is created for 
 Automatic backups could be created and secrets management defenitely needs to be implemented.
 
 ## Improvements:
-* Add ALB Application Load Management - Researched the ways to add it.
+* Add ALB Application Load Management
+  * TLS via certificate manager
+  * Karpenter or similar solutions to deploy ALB
+  * Necessary IAM setups 
 * Bastion or similar to securely offer access to users for tier 2 and tier 3.
 * Horizontal Auto-scaling could be fully implemented and improved.
 * Automatic database updates
