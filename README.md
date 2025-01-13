@@ -9,7 +9,8 @@ This project demonstrates the deployment of a scalable, multi-tier application o
 * https://registry.terraform.io/modules/terraform-aws-modules/alb/aws/latest
 
 ## Diagram
-![devops-task-zendesk drawio (2)](https://github.com/user-attachments/assets/0d9faf79-5775-44a2-b51d-9d7d4f5b2c8e)
+![devops-task-zendesk drawio (3)](https://github.com/user-attachments/assets/34870ae0-3481-46c7-9890-e85f7bbce897)
+
 
 ## Prerequisites
 
