@@ -34,10 +34,10 @@ This project demonstrates the deployment of a scalable, multi-tier application o
    ```bash
    aws eks update-kubeconfig --name devops-eks --region eu-west-1
    ```
-4. ** Deploy kubernetes manifest(s)
+4. ** Deploy kubernetes manifest(s) (to verify ALB controller setup)
    ```bash
    e.g.
-   kubectl apply -f ../kubernetes/ngnix **
+   kubectl apply -f ../kubernetes/ngnix-test-deployment.yaml
    ```
 
 ## Tier 1 - Public Subnets, Gateways, Load Balancing
