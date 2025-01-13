@@ -19,7 +19,7 @@ This project demonstrates the deployment of a scalable, multi-tier application o
 - [AWS CLI](https://aws.amazon.com/cli/) configured with appropriate credentials
 - *[Kustomize](https://kustomize.io/) >= 3.8.0 For templated kustomize kubernetes manifests that are not fully implemented yet.
 
-## Setup Instructions
+# Setup Instructions
 
 0. **Change the ipv4 address at the end of variables.tf to match your ipv4 address:**
    ```bash
@@ -54,7 +54,7 @@ The second tier hosts the Amazon EKS cluster, which includes the application ins
 ## Tier 3 - Database Instance (RDS PostgreSQL)
 The third tier contains the RDS PostgreSQL instance, hosted in a dedicated subnet for enhanced security and separation of concerns. This database tier is placed in a private subnet to prevent direct internet access and to ensure that it can only be accessed by authorized services within the VPC. To further improve the security posture, automatic backups are enabled, and encryption at rest is utilized. It is critical to implement a secrets management solution for handling database credentials and other sensitive data. Solutions such as AWS Secrets Manager or Parameter Store can be used to securely store and rotate credentials.
 
-## Improvements and Future Work
+# Improvements and Future Work
 
 - **Features/Configuration:**
   - Improve the configuration of RDS, EKS and ALB module
@@ -95,7 +95,7 @@ The third tier contains the RDS PostgreSQL instance, hosted in a dedicated subne
   - Ensure common handwriting
   - Add relevant comments and explanations
 
-## CI/CD Implementation Suggestions
+# CI/CD Implementation Suggestions
 When designing a CI/CD process, there are several strategies to consider. Below is a recommended approach:
 
 ## Release Branching Strategy
@@ -123,7 +123,7 @@ Separate microservice upgrades from core infrastructure changes to streamline de
 Use automated security checks in CI pipelines with tools like Trivy or Snyk.
 Implement IAM roles and policies for least privilege access during pipeline execution.
 
-## Monitoring
+# Monitoring
 Monitoring is essential for ensuring the reliability and performance of your application. 
 Below are some recommendations:
 
