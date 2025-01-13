@@ -34,9 +34,9 @@ variable "db_username" {
   default     = "dbadmin"
 }
 
+# Defined at apply!
 variable "db_password" {
   description = "Password for the RDS database."
-  default     = "changeme"
 }
 
 variable "db_family" {
