@@ -131,11 +131,11 @@ Use Prometheus for scraping metrics from Kubernetes and application components.
 Combine Thanos with Prometheus for long-term metric storage and query performance.
 Visualize metrics with Grafana.
 
-###Cloud-Native Monitoring:
+### Cloud-Native Monitoring:
 Integrate with Amazon CloudWatch for AWS-native monitoring, including logs, metrics, and application insights.
 Use Datadog for a comprehensive SaaS-based observability platform.
 
-###Logging:
+### Logging:
 Deploy the ELK Stack (Elasticsearch, Logstash, Kibana) or EKS Managed OpenSearch for log aggregation and analysis.
 Enable Kubernetes logging for detailed insights into pods, nodes, and services.
 
