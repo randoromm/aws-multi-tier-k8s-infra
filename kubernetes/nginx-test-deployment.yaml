@@ -26,6 +26,7 @@ metadata:
   namespace: default
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: "alb" # Use "nlb" if you prefer Network Load Balancer
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing # Publicly accessible
   labels:
     app: nginx
 spec:
