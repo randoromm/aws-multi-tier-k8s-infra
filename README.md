@@ -1,18 +1,30 @@
-# aws-multi-tier-k8s-infra
-Infrastructure as Code (IaC) setup for a scalable, multi-tier application on AWS using Terraform and Kubernetes (EKS). Includes VPC, RDS PostgreSQL, and Kubernetes manifests for frontend and backend services.
+# AWS Multi-Tier Kubernetes Infrastructure
+
+This project demonstrates the deployment of a scalable, multi-tier application on AWS using Terraform and Kubernetes (EKS). It sets up a Virtual Private Cloud (VPC), an Elastic Kubernetes Service (EKS) cluster, an RDS PostgreSQL database, and includes Kubernetes manifests (using Kustomize) for frontend and backend services.
 
 ## Modules used:
 * https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest
 * https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest
 * https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest
+* https://registry.terraform.io/modules/terraform-aws-modules/alb/aws/latest
 
 ## Diagram
-![devops-task-diagram](https://github.com/user-attachments/assets/da45dfcc-c281-4824-8e9f-3425d9943a02)
+![devops-task-zendesk drawio (2)](https://github.com/user-attachments/assets/0d9faf79-5775-44a2-b51d-9d7d4f5b2c8e)
 
-Unfortunately i was a little too optimistic with deadline offering and had very little time to learn and implement it fully how i intended.
-I planned to use existing modules and i'm not sure how great idea it will be in most cases for production.
-I learned the struggles of understanding the background of modules the hardway, but decided to continue with the idea anyways through debugging.
-On the positive side the task was very exciting and fun and i learned a lot about AWS during this task. I will defenitely continue with the task to implement the improvements.
+## Prerequisites
+
+- [Terraform](https://www.terraform.io/downloads.html) >= 1.0.0
+- [kubectl](https://kubernetes.io/docs/tasks/tools/) >= 1.20
+- [AWS CLI](https://aws.amazon.com/cli/) configured with appropriate credentials
+
+## Setup Instructions
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/randoromm/aws-multi-tier-k8s-infra.git
+   cd aws-multi-tier-k8s-infra
+   ```
+2. 
 
 ## Tier 1 - Public subnets, gateways, load-balancing
 First tier contains of 2 public subnets in separate availability zones for high availability.
