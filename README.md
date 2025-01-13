@@ -20,6 +20,9 @@ This project demonstrates the deployment of a scalable, multi-tier application o
 
 ## Setup Instructions
 
+0. **Change the ipv4 address at the end of variables.tf to match your ipv4 address!**
+   This is neccessary to be able to use kubectl. In ideal world this access would be managed with Bastion!
+
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/randoromm/aws-multi-tier-k8s-infra.git
