@@ -134,8 +134,8 @@ Enable Kubernetes logging for detailed insights into pods, nodes, and services.
 ### APM Tools:
 Attach an APM agent to containers for deeper observability, such as Datadog APM, New Relic, or AWS X-Ray.
 These tools can track distributed traces, identify bottlenecks, and profile application performance.
-Microservice Instrumentation:
 
+### Microservice Instrumentation:
 Use libraries like Micrometer for Java/Spring applications to expose application-level metrics to Prometheus.
 For .NET applications, integrate Application Insights SDK or OpenTelemetry for detailed telemetry data.
 Include request tracing, database query performance, and error rates in your dashboards.
