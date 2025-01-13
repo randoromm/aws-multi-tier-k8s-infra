@@ -85,19 +85,59 @@ The third tier contains the RDS PostgreSQL instance, hosted in a dedicated subne
   - Ensure common handwriting
   - Add relevant comments and explanations
 
-## CI/CD Implementation suggestions
-There are many ways to design a CI/CD process, but here are my preferances:
-Release branching strategy should be follow something similar to GitFlow principles. This should be similar for both infra and micro services:
-![image](https://github.com/user-attachments/assets/c2aec0b5-34ab-4acd-aad9-a4f3a895ce79)
-Jenkins/GitHub actions can be connected to Terraform Enterprise to and update images in ECR (container registry) and deploy.
+## CI/CD Implementation Suggestions
+When designing a CI/CD process, there are several strategies to consider. Below is a recommended approach:
 
-Also i've heard great feedback on ArgoCD. ArgoCD could be seperately used to upgrade the micro services if the helm charts/manifests have been updated.
+## Release Branching Strategy
+Adopt a release branching strategy based on GitFlow principles. This ensures a structured workflow for both infrastructure and microservices, promoting stability and continuous delivery.
 
-## Monitoring
-Some options for monitoring are Grafana, Datadog, CloudWatch.
-APM Agent can be attached to container and gather various metrics for the chosen observability tool.
-Previously we have used Prometheus/Thanos to gather metrics and also ELK stack to gather all the logs.
-For Spring/.NET there are libraries which can be included in development of microservices to provide better and more relevant metrics.
+Key Branches:
+
+- Main: Always reflects production-ready code.
+- Develop: A collaborative branch for ongoing development.
+- Feature Branches: For new features or enhancements. Merged into develop after completion.
+- Release Branches: Prepared for final testing before being merged into main.
+- Hotfix Branches: For critical fixes directly applied to main.
+
+## CI/CD Tools and Workflow
+### CI/CD Pipeline Tools:
+Use Jenkins or GitHub Actions for managing CI/CD workflows.
+Integrate pipelines with Terraform Enterprise to manage infrastructure as code (IaC) changes.
+Automate container image builds using Docker and push them to Amazon Elastic Container Registry (ECR).
+CD for Microservices:
+
+Consider ArgoCD for declarative continuous delivery in Kubernetes. ArgoCD works well with GitOps principles, enabling automated deployment when Kubernetes manifests or Helm charts are updated.
+Separate microservice upgrades from core infrastructure changes to streamline deployments.
+Security Considerations:
+
+Use automated security checks in CI pipelines with tools like Trivy or Snyk.
+Implement IAM roles and policies for least privilege access during pipeline execution.
+Monitoring
+Monitoring is essential for ensuring the reliability and performance of your application. Below are some recommendations:
+
+## Tools and Options
+### Grafana and Prometheus:
+Use Prometheus for scraping metrics from Kubernetes and application components.
+Combine Thanos with Prometheus for long-term metric storage and query performance.
+Visualize metrics with Grafana.
+Cloud-Native Monitoring:
+
+Integrate with Amazon CloudWatch for AWS-native monitoring, including logs, metrics, and application insights.
+Use Datadog for a comprehensive SaaS-based observability platform.
+Logging:
+
+Deploy the ELK Stack (Elasticsearch, Logstash, Kibana) or EKS Managed OpenSearch for log aggregation and analysis.
+Enable Kubernetes logging for detailed insights into pods, nodes, and services.
+
+## Application Performance Monitoring (APM)
+### APM Tools:
+Attach an APM agent to containers for deeper observability, such as Datadog APM, New Relic, or AWS X-Ray.
+These tools can track distributed traces, identify bottlenecks, and profile application performance.
+Microservice Instrumentation:
+
+Use libraries like Micrometer for Java/Spring applications to expose application-level metrics to Prometheus.
+For .NET applications, integrate Application Insights SDK or OpenTelemetry for detailed telemetry data.
+Include request tracing, database query performance, and error rates in your dashboards.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
