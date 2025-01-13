@@ -114,16 +114,17 @@ Key Branches:
 Use Jenkins or GitHub Actions for managing CI/CD workflows.
 Integrate pipelines with Terraform Enterprise to manage infrastructure as code (IaC) changes.
 Automate container image builds using Docker and push them to Amazon Elastic Container Registry (ECR).
-CD for Microservices:
 
+### CD for Microservices:
 Consider ArgoCD for declarative continuous delivery in Kubernetes. ArgoCD works well with GitOps principles, enabling automated deployment when Kubernetes manifests or Helm charts are updated.
 Separate microservice upgrades from core infrastructure changes to streamline deployments.
-Security Considerations:
 
+### Security Considerations:
 Use automated security checks in CI pipelines with tools like Trivy or Snyk.
 Implement IAM roles and policies for least privilege access during pipeline execution.
 Monitoring
-Monitoring is essential for ensuring the reliability and performance of your application. Below are some recommendations:
+Monitoring is essential for ensuring the reliability and performance of your application. 
+Below are some recommendations:
 
 ## Tools and Options
 ### Grafana and Prometheus:
