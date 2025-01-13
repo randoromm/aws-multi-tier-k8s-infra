@@ -6,6 +6,16 @@ module "eks" {
   cluster_version = "1.31" # Kubernetes version
   vpc_id          = module.vpc.vpc_id
   subnet_ids      = module.vpc.private_subnets
+  enable_irsa     = true # Automatically create OIDC provider for ALB
+
+  # Enable both private and public access
+  cluster_endpoint_private_access = true
+  cluster_endpoint_public_access  = true
+
+  # Restrict public access to your IPv4 address
+  cluster_endpoint_public_access_cidrs = ["88.196.76.42/32"]
+
+  enable_cluster_creator_admin_permissions = true
 
   tags = {
     Environment = "DevOps-Test"
