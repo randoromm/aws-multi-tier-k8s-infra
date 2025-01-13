@@ -32,3 +32,7 @@ output "eks_node_role_arn" {
 output "rds_endpoint" {
   value = module.rds.db_instance_endpoint
 }
+
+output "alb_dns_name" {
+  value = module.alb.dns_name
+}
