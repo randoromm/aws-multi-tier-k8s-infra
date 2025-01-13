@@ -60,11 +60,12 @@ The third tier contains the RDS PostgreSQL instance, hosted in a dedicated subne
   - Implement IAM roles with least privilege.
   - Configure network security groups for restricted access.
   - Implement Bastion to provide controlled access to users to RDS (and in general private subnets)
-  - Setup TLS (HTTPS) for ALB. Route53 and a custom Domain.
+  - Setup TLS (HTTPS) for ALB.
+     - Route53 and a custom domain with HTTP to HTTPS redirecting and necessary listeners.
 
 - **Scalability:**
   - Set up auto-scaling for the EKS cluster and application deployments.
-       - Cluster autoscaler requires similar setup to ALB and allows nodes to scale according to EKS resources.
+     - Cluster autoscaler requires similar setup to ALB and allows nodes to scale according to EKS resources.
 
 - **Monitoring and Logging:**
   - Integrate AWS CloudWatch for centralized logging and monitoring.
