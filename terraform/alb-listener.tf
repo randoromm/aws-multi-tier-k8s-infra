@@ -1,3 +1,4 @@
+# In production custom domain should be aquired and HTTPS listener made as well. Route53 can be also used.
 resource "aws_lb_listener" "http_listener" {
   load_balancer_arn = module.alb.arn
   port              = 80
