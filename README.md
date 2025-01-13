@@ -58,7 +58,7 @@ The third tier contains the RDS PostgreSQL instance, hosted in a dedicated subne
    
 - **Security Enhancements:**
   - Implement IAM roles with least privilege.
-  - Configure network security groups for restricted access.
+  - Configure network security groups further for proper restricted access.
   - Implement Bastion to provide controlled access to users to RDS (and in general private subnets)
   - Setup TLS (HTTPS) for ALB.
      - Route53 and a custom domain with HTTP to HTTPS redirecting and necessary listeners.
