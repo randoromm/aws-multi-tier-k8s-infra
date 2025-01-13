@@ -16,6 +16,7 @@ This project demonstrates the deployment of a scalable, multi-tier application o
 - [Terraform](https://www.terraform.io/downloads.html) >= 1.0.0
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) >= 1.20
 - [AWS CLI](https://aws.amazon.com/cli/) configured with appropriate credentials
+- ([Kustomize](https://kustomize.io/) >= 3.8.0) For templated Kubernetes manifests that are not fully implemented yet.
 
 ## Setup Instructions
 
