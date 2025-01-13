@@ -4,10 +4,11 @@ resource "aws_security_group" "rds_sg" {
   description = "Security group for RDS instance"
 
   ingress {
-    from_port   = 5432
-    to_port     = 5432
-    protocol    = "tcp"
-    cidr_blocks = [module.vpc.vpc_cidr_block] # Allow access within the VPC
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = "tcp"
+    cidr_blocks     = [module.vpc.vpc_cidr_block] # Allow access within the VPC
+    security_groups = [aws_security_group.bastion_sg.id]
   }
 
   egress {

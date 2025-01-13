@@ -27,3 +27,19 @@ module "vpc" {
     "kubernetes.io/cluster/devops-eks" = "owned"
   }
 }
+
+resource "aws_subnet" "bastion_subnet" {
+  vpc_id                  = module.vpc.vpc_id
+  cidr_block              = var.bastion_subnet
+  map_public_ip_on_launch = true
+  availability_zone       = var.availability_zones[0]
+
+  tags = {
+    "Name" = "bastion_subnet"
+  }
+}
+
+resource "aws_route_table_association" "bastion_assoc" {
+  subnet_id      = aws_subnet.bastion_subnet.id
+  route_table_id = module.vpc.public_route_table_ids[0]
+}

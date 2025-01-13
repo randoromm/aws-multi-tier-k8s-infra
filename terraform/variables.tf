@@ -29,6 +29,11 @@ variable "database_subnets" {
   default     = ["10.0.151.0/24", "10.0.152.0/24"]
 }
 
+variable "bastion_subnet" {
+  description = "Subnet for Bastion public subnet"
+  default     = "10.0.3.0/24"
+}
+
 variable "db_username" {
   description = "Username for the RDS database."
   default     = "dbadmin"
@@ -42,4 +47,10 @@ variable "db_password" {
 variable "db_family" {
   description = "The database family for the RDS parameter group."
   default     = "postgres14"
+}
+
+variable "bastion_ami" {
+  type        = string
+  default     = "ami-0e9085e60087ce171"
+  description = "Ubuntu 24.04 LTS AMI"
 }
