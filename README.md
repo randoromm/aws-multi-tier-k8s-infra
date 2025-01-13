@@ -122,7 +122,8 @@ Separate microservice upgrades from core infrastructure changes to streamline de
 ### Security Considerations:
 Use automated security checks in CI pipelines with tools like Trivy or Snyk.
 Implement IAM roles and policies for least privilege access during pipeline execution.
-Monitoring
+
+## Monitoring
 Monitoring is essential for ensuring the reliability and performance of your application. 
 Below are some recommendations:
 
