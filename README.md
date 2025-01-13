@@ -25,16 +25,16 @@ This project demonstrates the deployment of a scalable, multi-tier application o
    git clone https://github.com/randoromm/aws-multi-tier-k8s-infra.git
    cd aws-multi-tier-k8s-infra/terraform
    ```
-2. ** Deploy terraform **
+2. **Deploy terraform**
    ```bash
    terraform init
    terraform apply
    ```
-3. ** Configure kubectl **
+3. **Configure kubectl**
    ```bash
    aws eks update-kubeconfig --name devops-eks --region eu-west-1
    ```
-4. ** Deploy kubernetes manifest(s) (to verify ALB controller setup)
+4. **Deploy kubernetes manifest(s) (to verify ALB controller setup)**
    ```bash
    e.g.
    kubectl apply -f ../kubernetes/ngnix-test-deployment.yaml
