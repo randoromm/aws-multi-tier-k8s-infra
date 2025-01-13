@@ -12,8 +12,9 @@ module "eks" {
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access  = true
 
-  # Restrict public access to your IPv4 address
-  cluster_endpoint_public_access_cidrs = ["88.196.76.42/32"]
+  # Restrict public access to YOUR IPv4 address
+  # NB! Change this value in variables to have kubectl access!
+  cluster_endpoint_public_access_cidrs = [var.eks_public_access_ip4]
 
   enable_cluster_creator_admin_permissions = true
 

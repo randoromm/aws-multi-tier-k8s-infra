@@ -54,3 +54,9 @@ variable "bastion_ami" {
   default     = "ami-0e9085e60087ce171"
   description = "Ubuntu 24.04 LTS AMI"
 }
+
+variable "eks_public_access_ip4" {
+  type        = string
+  description = "Place YOUR public ipv4 address here with /32!"
+  default     = "88.196.76.42/32"
+}

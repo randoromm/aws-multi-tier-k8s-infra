@@ -57,9 +57,11 @@ The third tier contains the RDS PostgreSQL instance, hosted in a dedicated subne
   - Finalize the Kustomize template kubernetes manifests and auto-deploy them with ALB enabled.
    
 - **Security Enhancements:**
+  - Revise RDS ingress and egress rules. Limit network access further.
+  - Extend Bastion authorization management in general to private subnets  (besides RDS)
+      - Instead of specifically defining your own public IP for public cluster access.
   - Implement IAM roles with least privilege.
   - Configure network security groups further for proper restricted access.
-  - Implement Bastion to provide controlled access to users to RDS (and in general private subnets)
   - Setup TLS (HTTPS) for ALB.
      - Route53 and a custom domain with HTTP to HTTPS redirecting and necessary listeners.
 
@@ -83,6 +85,7 @@ The third tier contains the RDS PostgreSQL instance, hosted in a dedicated subne
   - Include troubleshooting guides for common issues.
 
 - **Clean Code:**
+  - Organizing of terraform resource/data/variable/module blocks and files.
   - Go over the variables, versions, definitions
   - Ensure common handwriting
   - Add relevant comments and explanations
