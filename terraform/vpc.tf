@@ -10,13 +10,18 @@ module "vpc" {
   create_database_subnet_group = true
   database_subnets             = var.database_subnets
 
+  # Enables DNS hostnames for resources launched in the VPC.
+  # Required for services like EKS, NAT gateways and some third-part apps
   enable_dns_hostnames = true # Many 3party apps (and also VPN) require DNS support, so i like to enable it from the start
   enable_dns_support   = true
 
+  # Enable NAT gateway for access to internet from private subnets (no inbound access opened).
+  # In production high availability for NAT gateway should also be considered. Single one in single AZ for cost reduction here.
   enable_nat_gateway     = true
   single_nat_gateway     = true # For prod consider per avz or per subnet
   one_nat_gateway_per_az = false
 
+  # Tags for EKS
   public_subnet_tags = {
     "kubernetes.io/role/elb"           = 1
     "kubernetes.io/cluster/devops-eks" = "owned"

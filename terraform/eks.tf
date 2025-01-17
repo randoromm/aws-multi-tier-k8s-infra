@@ -9,20 +9,21 @@ module "eks" {
   enable_irsa     = true # Automatically create OIDC provider for ALB
 
   # Enable both private and public access
-  cluster_endpoint_private_access = true
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_private_access = true # Enables private access to the Kubernetes API server from within the VPC
+  cluster_endpoint_public_access  = true # Enables public access to the Kubernetes API server, typically for administrative purposes to use Kubectl from local machine
 
   # Restrict public access to YOUR IPv4 address
   # NB! Change this value in variables to have kubectl access!
   cluster_endpoint_public_access_cidrs = [var.eks_public_access_ip4]
 
-  enable_cluster_creator_admin_permissions = true
+  enable_cluster_creator_admin_permissions = true # Automatically grants cluster creator admin permissions
 
   tags = {
     Environment = "DevOps-Test"
   }
 }
 
+# Create managed node group
 resource "aws_eks_node_group" "default" {
   cluster_name    = "devops-eks" # module.eks.cluster_id # "devops-eks"
   depends_on      = [module.eks] # Explicit dependency on the cluster
