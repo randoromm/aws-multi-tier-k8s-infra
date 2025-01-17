@@ -3,6 +3,7 @@ resource "aws_security_group" "rds_sg" {
   vpc_id      = module.vpc.vpc_id
   description = "Security group for RDS instance"
 
+  # Ideally access would be restricted to 2 SGs. Backend SG and Bastion SG
   ingress {
     from_port       = 5432
     to_port         = 5432
@@ -11,11 +12,12 @@ resource "aws_security_group" "rds_sg" {
     security_groups = [aws_security_group.bastion_sg.id]
   }
 
+  # Ideally also egress would be limited to only necessary security groups (backend, bastion, s3 etc..)
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = [module.vpc.vpc_cidr_block]
   }
 }
 
@@ -30,6 +32,7 @@ module "rds" {
   instance_class    = "db.t3.micro"
   allocated_storage = 20
 
+  # IAM Roles could be implemented to enable application access.
   db_name  = "appdb"
   username = var.db_username
   password = var.db_password
