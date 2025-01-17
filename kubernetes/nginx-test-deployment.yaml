@@ -27,6 +27,7 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: "alb" # Use "nlb" if you prefer Network Load Balancer
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing # Publicly accessible
+    alb.ingress.kubernetes.io/target-type: ip # Direct traffic to pod IPs
   labels:
     app: nginx
 spec:

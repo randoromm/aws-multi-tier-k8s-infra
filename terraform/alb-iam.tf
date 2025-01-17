@@ -11,8 +11,8 @@ data "aws_iam_policy_document" "alb_assume_role_policy" {
 
     condition {
       test     = "StringEquals"
-      variable = "${replace(module.eks.cluster_oidc_issuer_url, "https://", "")}:sub"
-      values   = ["system:serviceaccount:kube-system:alb-controller-service-account"]
+      variable = "${replace(module.eks.cluster_oidc_issuer_url, "https://", "")}:sub" # Ensures the condition matches the format expected for OIDC issuer URLs
+      values   = ["system:serviceaccount:kube-system:alb-controller-service-account"] # Limit assumption to specific service account in kubernetes
     }
   }
 }

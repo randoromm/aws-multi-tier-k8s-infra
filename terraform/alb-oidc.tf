@@ -4,15 +4,19 @@
 #  url             = module.eks.cluster_oidc_issuer_url
 #  depends_on      = [module.eks]
 #}
+
+# As OIDC provider is created by EKS module, we just fetch it with data block
 data "aws_iam_openid_connect_provider" "eks_oidc_provider" {
   arn = module.eks.oidc_provider_arn
 }
 
+# Used for temp auth token by alb-controller-helm.tf
 data "aws_eks_cluster_auth" "cluster" {
   name       = module.eks.cluster_name
   depends_on = [module.eks]
 }
 
+# Used for metadata by alb-controller-helm.tf
 data "aws_eks_cluster" "cluster" {
   name       = module.eks.cluster_name
   depends_on = [module.eks]
